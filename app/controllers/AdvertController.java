@@ -25,7 +25,6 @@ public class AdvertController extends Controller {
 		
 		List<Advert> adverts = Advert.find("byAddress", filter).fetch();
 		
-//		List<Advert> adverts = Advert.findAll();
 		render(adverts);
 	}
 	
