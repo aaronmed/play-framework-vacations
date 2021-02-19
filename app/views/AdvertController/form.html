@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Form' /}
+
+<form action="@{AdvertController.add}">
+Description <input type="text" name="advert.description" value="${advert?.description}"> </br>
+
+Address <input type="text" name="advert.address" value="${advert?.address}"> </br>
+
+Published  <input type="text" name="advert.published" value="${advert?.published}"> </br>
+
+Price <input type="text" name="advert.price" value="${advert?.price}"> </br>
+
+Guests  <input type="text" name="advert.guests" value="${advert?.guests}"> </br>
+
+Bathrooms  <input type="text" name="advert.bathrooms" value="${advert?.bathrooms}"> </br>
+
+Bedrooms  <input type="text" name="advert.bedrooms" value="${advert?.bedrooms}"> </br>
+
+Beds  <input type="text" name="advert.beds" value="${advert?.beds}"> </br>
+
+User  <input type="text" name="advert.user" value="${advert?.user}"> </br>
+
+<button type="submit">Send </button>
+</form>	

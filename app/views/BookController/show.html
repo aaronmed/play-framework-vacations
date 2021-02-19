@@ -1,0 +1,7 @@
+#{extends 'main.html' /}
+#{set title:'List of books' /}
+
+#{list items:books, as:'b'}
+	${b.user} - ${b.advert} - ${b.start} - ${b.end}<br/>
+#{/list}
+
