@@ -20,7 +20,7 @@ public class Adverts extends Controller {
 		
 		List<Advert> adverts = Advert.find("byAddress", filter).fetch();
 		
-		render(adverts);
+		renderTemplate("Application/index.html", adverts);
 	}
 	
 	public static void listByUser() {
