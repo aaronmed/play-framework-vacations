@@ -5,7 +5,7 @@ import java.util.List;
 import models.Book;
 import play.mvc.Controller;
 
-public class BookController extends Controller {
+public class Books extends Controller {
 	public static void form() {
 		render();
 	}
@@ -15,7 +15,7 @@ public class BookController extends Controller {
 		form();
 	}
 	
-	public static void show() {
+	public static void list() {
 		List<Book> books = Book.findAll();
 		render(books);
 	}

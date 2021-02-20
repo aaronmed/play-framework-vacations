@@ -5,7 +5,7 @@ import java.util.List;
 import models.Review;
 import play.mvc.Controller;
 
-public class ReviewController extends Controller {
+public class Reviews extends Controller {
 	public static void form() {
 		render();
 	}

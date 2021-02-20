@@ -1,13 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'List of adverts' /}
 
-<form action="@{AdvertController.show}">
+<form action="@{Adverts.list}">
 	<input name="filter">
 	<button>Search</button>
 </form>
 #{list items:adverts, as:'a'}
 	${a.description} - ${a.address} - ${a.published} - ${a.price} - ${a.user.name}
-	<a href="@{AdvertController.edit(a.id)}">Editar</a>
+	<a href="@{Adverts.edit(a.id)}">Editar</a>
 	
 	<br/>
 #{/list}

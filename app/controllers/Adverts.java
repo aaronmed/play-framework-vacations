@@ -5,7 +5,7 @@ import java.util.List;
 import models.Advert;
 import play.mvc.Controller;
 
-public class AdvertController extends Controller {
+public class Adverts extends Controller {
 	public static void form() {
 		render();
 	}
@@ -14,13 +14,8 @@ public class AdvertController extends Controller {
 		advert.save();
 		form();
 	}
-	
-//	public static void show() {
-//		List<Advert> adverts = Advert.findAll();
-//		render(adverts);
-//	}
-	
-	public static void show() {
+		
+	public static void list() {
 		String filter = params.get("filter");
 		
 		List<Advert> adverts = Advert.find("byAddress", filter).fetch();
@@ -28,7 +23,7 @@ public class AdvertController extends Controller {
 		render(adverts);
 	}
 	
-	public static void showOwnsByUser() {
+	public static void listByUser() {
 		String filter = params.get("filter");
 		List<Advert> adverts = Advert.find("byUser.name", filter).fetch();
 		
@@ -37,7 +32,7 @@ public class AdvertController extends Controller {
 	
 	public static void edit(long id) {
 		Advert advert = Advert.findById(id);
-		renderTemplate("AdvertController/form.html", advert);
+		renderTemplate("Adverts/form.html", advert);
 	}
 	
 	public static void delete(long id) {

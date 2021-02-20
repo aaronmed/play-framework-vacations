@@ -8,7 +8,7 @@ import play.mvc.With;
 
 
 @With(Security.class)
-public class UserController extends Controller {
+public class Users extends Controller {
 	public static void form() {
 		render();
 	}
@@ -24,7 +24,7 @@ public class UserController extends Controller {
 	
 	public static void edit(long id) {
 		User user = User.findById(id);
-		renderTemplate("UserController/form.html", user);
+		renderTemplate("Users/form.html", user);
 	}
 	
 	public static void delete(long id) {

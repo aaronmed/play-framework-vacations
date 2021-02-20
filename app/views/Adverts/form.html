@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
-#{set title:'Form' /}
+#{set title:'New advert' /}
 
-<form action="@{AdvertController.add}">
+<form action="@{Adverts.add}">
 Description <input type="text" name="advert.description" value="${advert?.description}"> </br>
 
 Address <input type="text" name="advert.address" value="${advert?.address}"> </br>
