@@ -4,7 +4,10 @@ import java.util.List;
 
 import models.User;
 import play.mvc.Controller;
+import play.mvc.With;
 
+
+@With(Security.class)
 public class UserController extends Controller {
 	public static void form() {
 		render();
@@ -21,7 +24,7 @@ public class UserController extends Controller {
 	
 	public static void edit(long id) {
 		User user = User.findById(id);
-		renderTemplate("Users/form.html", user);
+		renderTemplate("UserController/form.html", user);
 	}
 	
 	public static void delete(long id) {

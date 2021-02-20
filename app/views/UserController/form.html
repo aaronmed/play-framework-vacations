@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'Form' /}
+
+<form action="@{UserController.add}">
+Username <input type="text" name="user.username" value="${user?.username}"> <br>
+
+Password <input type="password" name="user.password" value="${user?.password}"> <br>
+
+Name  <input type="text" name="user.name" value="${user?.name}"> <br>
+
+Surname <input type="text" name="user.surname" value="${user?.surname}"> <br>
+
+DNI  <input type="text" name="user.dni" value="${user?.dni}"> <br>
+
+Telephone  <input type="text" name="user.telephone" value="${user?.telephone}"> <br>
+
+<button type="submit">Send </button>
+</form>
