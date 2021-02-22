@@ -5,12 +5,12 @@ import play.mvc.Before;
 
 public class Security extends Controller {
 	
-	@Before
-	static void verify() {
-		
-		if(session.contains("user.username") == false) {
-			renderTemplate("UserController/form.html");
-		}
-	}
+//	@Before
+//	static void verify() {
+//		
+//		if(session.contains("user.username") == false) {
+//			renderTemplate("UserController/form.html");
+//		}
+//	}
 
 }

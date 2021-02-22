@@ -13,9 +13,9 @@ GET     /public/                                staticDir:public
 
 GET		/login									Login.form
 
-GET		/adverts								Adverts.list
+GET		/adverts								Adverts.listByUser
 
-GET 	/adverts								Adverts.
+GET		/books									Books.listByUser
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
