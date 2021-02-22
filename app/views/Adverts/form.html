@@ -21,6 +21,10 @@
 </div>
 <div class="container">
 <!-- <form action="@{Adverts.add}">
+<form action="@{Adverts.add}">
+
+<input type="hidden" name="advert.id" value="${advert?.id}">
+
 Description <input type="text" name="advert.description" value="${advert?.description}"> </br>
 
 Address <input type="text" name="advert.address" value="${advert?.address}"> </br>
@@ -37,7 +41,7 @@ Bedrooms  <input type="text" name="advert.bedrooms" value="${advert?.bedrooms}">
 
 Beds  <input type="text" name="advert.beds" value="${advert?.beds}"> </br>
 
-User  <input type="text" name="advert.user" value="${advert?.user}"> </br>
+User  <input type="hidden" name="advert.user.id" value="${advert?.user.id}"> </br>
 
 <button type="submit">Send </button>
 </form> -->

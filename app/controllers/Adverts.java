@@ -24,10 +24,10 @@ public class Adverts extends Controller {
 	}
 	
 	public static void listByUser() {
-		String filter = params.get("filter");
-		List<Advert> adverts = Advert.find("byUser.name", filter).fetch();
+		Long id =  Long.parseLong(session.get("user.id"));
+		List<Advert> adverts = Advert.find("byUser.id", id).fetch();
 		
-		render(adverts);
+		renderTemplate("Adverts/list.html", adverts);
 	}
 	
 	public static void edit(long id) {

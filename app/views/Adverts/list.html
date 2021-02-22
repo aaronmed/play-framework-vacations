@@ -1,2 +1,19 @@
 #{extends 'main.html' /}
 #{set title:'List of adverts' /}
+
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+
+<div class="topnav">
+  <a class="active" href="/home">Home</a>
+  #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
+  #{if session.get("user.username") != null}<a href="@{Books.listByUser}">My books</a>#{/if} 
+  <a href="#contact">Contact</a>
+  <a href="#contact">About us</a>
+  #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if} 
+  #{if session.get("user.username") != null} <a href="@{Login.logout}" >Logout</a> #{/if} 
+</div>
+
+#{list items:adverts, as:'a'}
+	${a.description} - ${a.address} - ${a.published} - ${a.price} - ${a.user.name}	
+	<br/>
+#{/list}

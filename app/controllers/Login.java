@@ -16,16 +16,21 @@ public class Login extends Controller {
 		
 		if (user == null) {
 			System.out.println("Login incorrecto");
+			flash.error("Las credenciales no son correctas");
+			Login.form();
+			
 		} else {
 			session.put("user.username", user.username);
 			session.put("user.id", user.id);
-			System.out.println("Login correcto");
+			System.out.println("Login correcto con " + user.username);
+			Application.index();
+			
 		}
 	}
 	
 	public static void logout() {
 		session.clear();
-		Login.form();
+		System.out.println("Sesión cerrada");
+		Application.index();
 	}
-
 }

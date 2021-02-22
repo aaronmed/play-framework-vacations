@@ -1,9 +1,0 @@
-#{extends 'main.html' /}
-#{set title:'List of users' /}
-
-<a href="@{Login.logout}">Logout</a> <br>
-
-#{list items:users, as:'u'}
-	${u.username} - ${u.name} - ${u.surname} - ${u.dni} - ${u.telephone}<br/>
-#{/list}
-

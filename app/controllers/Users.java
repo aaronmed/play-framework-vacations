@@ -15,6 +15,7 @@ public class Users extends Controller {
 	
 	public static void add(User user) {
 		user.save();
+		renderTemplate("Application/index.html");
 	}
 	
 	public static void show() {
@@ -31,5 +32,4 @@ public class Users extends Controller {
 		User user = User.findById(id);
 		user.delete();
 	}
-
 }
