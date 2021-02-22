@@ -36,5 +36,6 @@ public class Books extends Controller {
 	public static void delete(long id) {
 		Book book = Book.findById(id);
 		book.delete();
+		listByUser();
 	}
 }

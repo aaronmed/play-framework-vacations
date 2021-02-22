@@ -1,27 +1,59 @@
 #{extends 'main.html' /}
 #{set title:'List of books' /}
+<!DOCTYPE html>
+<html lang="en">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="topnav">
-  <a class="active" href="/home">Home</a>
-  #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
-  #{if session.get("user.username") != null}<a href="@{Books.listByUser}">My books</a>#{/if} 
-  <a href="#contact">Contact</a>
-  <a href="#contact">About us</a>
-  #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if} 
-  #{if session.get("user.username") != null} <a href="@{Login.logout}" >Logout</a> #{/if} 
-</div>
+	<link href="@{'/public/stylesheets/buttons.css'}" rel="stylesheet" />
+</head>
 
-#{list items:books, as:'b'}
-	${b.user.name} - ${b.advert.description} - ${b.advert.address} - ${b.start} - ${b.end}<br/>
-	<a href="@{Books.edit(b.id)}">Edit</a>
-	<br/>
-	<br/>
-#{/list}
+<body>
+	<div class="topnav">
+		<a href="/home">Inicio</a>
+		#{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">Mis anuncios</a>#{/if}
+		#{if session.get("user.username") != null}<a class="active" href="@{Books.listByUser}">Mis reservas</a>#{/if}
+		<a href="#contact">Contacto</a>
+		<a href="#contact">About us</a>
+		#{if session.get("user.username") == null} <a href="/login">Login</a> #{/if}
+		#{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if}
+	</div>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				#{list items:books, as:'b'}
+				<div class="card mb-3" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
+								alt="..." width="200" height="150">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">${b.advert.description}</h5>
+								<p class="card-text">${b.advert.address}</p>
+								<p class="card-text"><small class="text-muted">${b.start}</small></p>
+								<p class="card-text"><small class="text-muted">${b.end}</small></p>
+								<a class="btn green-button" type="button" href="@{Books.delete(b.id)}">Cancelar
+									reserva</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				#{/list}
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

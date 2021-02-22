@@ -22,6 +22,35 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #00bf92;
   color: white;
 }
+
+a:link, a:visited, a:hover, a:active {
+  color: #00bf92;
+}
+
+i {
+  font-size: 25px;
+}
+
+#center-button {
+  position: fixed;
+  bottom: 15px;
+  text-align: center;
+  font-size: 15px;
+}
+
+@media (min-width: 100px) {
+  #center-button {
+    left: 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  #center-button {
+    left: 30%;
+  }
+}
+
+    

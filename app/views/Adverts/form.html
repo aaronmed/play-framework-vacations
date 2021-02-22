@@ -11,18 +11,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <head>
 <body>
-<div class="topnav">
-  <a class="active" href="/home">Home</a>
-  #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
-  #{if session.get("user.username") != null}<a href="@{Books.listByUser}">My books</a>#{/if} 
-  <a href="#contact">Contact</a>
-  <a href="#contact">About us</a>
-  #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if} 
-  #{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if} 
-</div>
+  <div class="topnav">
+    <a href="/home">Inicio</a>
+    #{if session.get("user.username") != null}<a class="active" href="@{Adverts.listByUser}">Mis anuncios</a>#{/if}
+    #{if session.get("user.username") != null}<a href="@{Books.listByUser}">Mis reservas</a>#{/if}
+    <a href="#contact">Contacto</a>
+    <a href="#contact">About us</a>
+    #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if}
+    #{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if}
+  </div>
 
 <div class="container">
 <form action="@{Adverts.add}" class="needs-validation" novalidate>
+	<input type="hidden" name="advert.id" value=${advert?.id}>
+	<input type="hidden" name="advert.user.id" value="${iduser}">
     <div class="form-group">
       <label for="uname">Description:</label>
       <input type="text" class="form-control" id="uname" placeholder="Enter username" name="advert.description" value="${advert?.description}" required>
@@ -35,12 +37,7 @@
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="form-group">
-      <label for="pbh">Published:</label>
-      <input type="date" class="form-control" id="pbh" placeholder="Enter published" name="advert.published" value="${advert?.published}" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
+     <input type="hidden" class="form-control" id="pbh" placeholder="Enter published" name="advert.published" value="${date}" required>
     <div class="form-group">
       <label for="prc">Price:</label>
       <input type="number" class="form-control" id="prc" placeholder="Enter price" name="advert.price" value="${advert?.price}" required>

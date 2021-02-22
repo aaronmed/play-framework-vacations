@@ -20,4 +20,6 @@ public class Advert extends Model {
 	@ManyToOne
 	@JoinColumn(name="user")
 	public User user;
+	
+	
 }

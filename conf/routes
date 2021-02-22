@@ -17,5 +17,9 @@ GET		/adverts								Adverts.listByUser
 
 GET		/books									Books.listByUser
 
+GET		/newadvert								Adverts.form
+
+GET 	/register								Users.form
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

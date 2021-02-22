@@ -1,24 +1,87 @@
 #{extends 'main.html' /}
 #{set title:'List of adverts' /}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="topnav">
-  <a class="active" href="/home">Home</a>
-  #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
-  #{if session.get("user.username") != null}<a href="@{Books.listByUser}">My books</a>#{/if} 
-  <a href="#contact">Contact</a>
-  <a href="#contact">About us</a>
-  #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if} 
-  #{if session.get("user.username") != null} <a href="@{Login.logout}" >Logout</a> #{/if} 
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-#{list items:adverts, as:'a'}
-	${a.description} - ${a.address} - ${a.published} - ${a.price} - ${a.user.name}	
-	<br/>
-#{/list}
+  <link href="@{'/public/stylesheets/buttons.css'}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/home">Inicio</a>
+    #{if session.get("user.username") != null}<a class="active" href="@{Adverts.listByUser}">Mis anuncios</a>#{/if}
+    #{if session.get("user.username") != null}<a href="@{Books.listByUser}">Mis reservas</a>#{/if}
+    <a href="#contact">Contacto</a>
+    <a href="#contact">About us</a>
+    #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if}
+    #{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if}
+  </div>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        #{list items:adverts, as:'a'}
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <img class="img-fluid"
+                src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
+                alt="..." />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">${a.description}</h5>
+                <p class="card-text">${a.address}</p>
+                <p class="card-text">${a.price}€ por noche</p>
+                <p class="card-text"><small class="text-muted">${a.published}</small></p>
+              </div>
+            </div>
+
+            <div class="col-md-1"></div>
+
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+              <a href="@{Adverts.edit(a.id)}"><i class="fas fa-edit"></i></a>
+              <a href="@{Adverts.delete(a.id)}"><i class=" fas fa-trash"></i></a>
+            </div>
+
+          </div>
+        </div>
+        #{/list}
+      </div>
+
+      <div class="col-sm-2"></div>
+
+      <div class="col-sm-5"></div>
+
+      <div class="col-sm-2"><a id="center-button" href="/newadvert"><button id="center-button" type="button" class="btn green-button">
+            Crear anuncio
+          </button></a></div>
+      <div class="col-sm-5"></div>
+
+    </div>
+  </div>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+</body>
+
+</html>

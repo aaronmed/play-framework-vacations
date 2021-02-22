@@ -20,7 +20,7 @@ public class Login extends Controller {
 			Login.form();
 			
 		} else {
-			session.put("user.username", user.username);
+			session.put("user.username", username);
 			session.put("user.id", user.id);
 			System.out.println("Login correcto con " + user.username);
 			Application.index();

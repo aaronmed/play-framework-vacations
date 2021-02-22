@@ -1,18 +1,29 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import models.Advert;
+import models.User;
+import play.libs.Crypto;
 import play.mvc.Controller;
 
 public class Adverts extends Controller {
 	public static void form() {
-		render();
+		Long iduser = Long.parseLong(session.get("user.id"));
+		
+		Date today = Calendar.getInstance().getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(today);
+		
+		render(iduser, date);
 	}
 	
 	public static void add(Advert advert) {
 		advert.save();
-		form();
+		listByUser();
 	}
 		
 	public static void list() {
@@ -32,11 +43,19 @@ public class Adverts extends Controller {
 	
 	public static void edit(long id) {
 		Advert advert = Advert.findById(id);
-		renderTemplate("Adverts/form.html", advert);
+		
+		Long iduser = Long.parseLong(session.get("user.id"));
+		
+		Date today = Calendar.getInstance().getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(today);
+		
+		renderTemplate("Adverts/form.html", advert, iduser, date);
 	}
 	
 	public static void delete(long id) {
 		Advert advert = Advert.findById(id);
 		advert.delete();
+		listByUser();
 	}
 }

@@ -1,18 +1,78 @@
 #{extends 'main.html' /}
 #{set title:'Form' /}
+<!DOCTYPE html>
+<html lang="en">
 
-<form action="@{Users.add}">
-Username <input type="text" name="user.username" value="${user?.username}"> <br>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-Password <input type="password" name="user.password" value="${user?.password}"> <br>
+  <link href="@{'/public/stylesheets/buttons.css'}" rel="stylesheet" />
+</head>
 
-Name  <input type="text" name="user.name" value="${user?.name}"> <br>
+<body>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <img src="@{'/public/images/logo.png'}" alt="logo" class="img-fluid mb-4" />
+        <form action="@{Users.add}">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form6Example1" class="form-control" name="user.name" />
+                <label class="form-label" for="form6Example1">First name</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form6Example2" class="form-control" name="user.surname" />
+                <label class="form-label" for="form6Example2">Last name</label>
+              </div>
+            </div>
+          </div>
 
-Surname <input type="text" name="user.surname" value="${user?.surname}"> <br>
+          <!-- Text input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form6Example3" class="form-control" name="user.dni" />
+            <label class="form-label" for="form6Example3">DNI</label>
+          </div>
 
-DNI  <input type="text" name="user.dni" value="${user?.dni}"> <br>
+          <!-- Text input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form6Example4" class="form-control" name="user.telephone" />
+            <label class="form-label" for="form6Example4">Telephone</label>
+          </div>
 
-Telephone  <input type="text" name="user.telephone" value="${user?.telephone}"> <br>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form6Example5" class="form-control" name="user.username" />
+            <label class="form-label" for="form6Example5">Username</label>
+          </div>
 
-<button type="submit">Send </button>
-</form>
+          <!-- Number input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form6Example6" class="form-control" name="user.password" />
+            <label class="form-label" for="form6Example6">Password</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn green-button btn-block mb-4">Register</button>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+</body>
+
+</html>
