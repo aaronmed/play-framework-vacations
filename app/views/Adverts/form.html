@@ -1,7 +1,26 @@
 #{extends 'main.html' /}
 #{set title:'New advert' /}
 
-<form action="@{Adverts.add}">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+<body>
+<div class="topnav">
+  <a class="active" href="/home">Home</a>
+  <a href="/adverts">My adverts</a>
+  <a href="#contact">My books</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact">About us</a>
+  <a href="/login">Login</a>
+</div>
+<div class="container">
+<!-- <form action="@{Adverts.add}">
 Description <input type="text" name="advert.description" value="${advert?.description}"> </br>
 
 Address <input type="text" name="advert.address" value="${advert?.address}"> </br>
@@ -21,4 +40,95 @@ Beds  <input type="text" name="advert.beds" value="${advert?.beds}"> </br>
 User  <input type="text" name="advert.user" value="${advert?.user}"> </br>
 
 <button type="submit">Send </button>
-</form>	
+</form> -->
+
+<form action="@{Adverts.add}" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="uname">Description:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="advert.description" value="${advert?.description}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="adrs">Address:</label>
+      <input type="text" class="form-control" id="adrs" placeholder="Enter password" name="advert.address" value="${advert?.address}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="pbh">Published:</label>
+      <input type="date" class="form-control" id="pbh" placeholder="Enter published" name="advert.published" value="${advert?.published}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="prc">Price:</label>
+      <input type="number" class="form-control" id="prc" placeholder="Enter price" name="advert.price" value="${advert?.price}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="gts">Guests:</label>
+      <input type="number" class="form-control" id="gts" placeholder="Enter guests" name="advert.guests" value="${advert?.guests}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="bth">Bathrooms:</label>
+      <input type="number" class="form-control" id="bth" placeholder="Enter bathrooms" name="advert.bathrooms" value="${advert?.bathrooms}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="bdr">Bedrooms:</label>
+      <input type="number" class="form-control" id="bdr" placeholder="Enter bedrooms" name="advert.bedrooms" value="${advert?.bedrooms}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="bds">Beds:</label>
+      <input type="number" class="form-control" id="bds" placeholder="Enter beds" name="advert.beds" value="${advert?.beds}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="usr">User:</label>
+      <input type="number" class="form-control" id="usr" placeholder="Enter user" name="advert.user" value="${advert?.user}" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember" required> I agree with the data.
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Check this checkbox to continue.</div>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+<script>
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+</body>
+</html>

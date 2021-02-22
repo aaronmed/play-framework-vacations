@@ -1,7 +1,15 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+<body>
 <div class="topnav">
   <a class="active" href="/home">Home</a>
   <a href="/adverts">My adverts</a>
@@ -9,13 +17,26 @@
   <a href="#contact">Contact</a>
   <a href="#contact">About us</a>
   <a href="/login">Login</a>
+  <a>
+  <form class="float-right" action="@{Adverts.list}">
+    	<input name="filter">
+    	<button>Search</button>
+    </form>
+  </a>
 </div>
 
-<form action="@{Adverts.list}">
-    <input name="filter">
-    <button>Search</button>
-</form>
 #{list items:adverts, as:'a'}
-    ${a.description} - ${a.address} - ${a.published} - ${a.price} - ${a.user.name}
-    <br/>
+<div class="container">
+  <ul class="list-group list-group-flush">
+  	<label>Anuncio:</label>
+    <li class="list-group-item">Descripcion: ${a.description}</li>
+    <li class="list-group-item">Direccion: ${a.address}</li>
+    <li class="list-group-item">Publicado: ${a.published}</li>
+    <li class="list-group-item">Precio: ${a.price}</li>
+    <li class="list-group-item">Usuario de la reserva: ${a.user.name}</li>
+  </ul>
+</div>
 #{/list}
+
+</body>
+</html>
