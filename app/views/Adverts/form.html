@@ -13,39 +13,15 @@
 <body>
 <div class="topnav">
   <a class="active" href="/home">Home</a>
-  <a href="/adverts">My adverts</a>
-  <a href="#contact">My books</a>
+  #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
+  #{if session.get("user.username") != null}<a href="@{Books.listByUser}">My books</a>#{/if} 
   <a href="#contact">Contact</a>
   <a href="#contact">About us</a>
-  <a href="/login">Login</a>
+  #{if session.get("user.username") == null} <a href="/login">Login</a> #{/if} 
+  #{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if} 
 </div>
+
 <div class="container">
-<!-- <form action="@{Adverts.add}">
-<form action="@{Adverts.add}">
-
-<input type="hidden" name="advert.id" value="${advert?.id}">
-
-Description <input type="text" name="advert.description" value="${advert?.description}"> </br>
-
-Address <input type="text" name="advert.address" value="${advert?.address}"> </br>
-
-Published  <input type="text" name="advert.published" value="${advert?.published}"> </br>
-
-Price <input type="text" name="advert.price" value="${advert?.price}"> </br>
-
-Guests  <input type="text" name="advert.guests" value="${advert?.guests}"> </br>
-
-Bathrooms  <input type="text" name="advert.bathrooms" value="${advert?.bathrooms}"> </br>
-
-Bedrooms  <input type="text" name="advert.bedrooms" value="${advert?.bedrooms}"> </br>
-
-Beds  <input type="text" name="advert.beds" value="${advert?.beds}"> </br>
-
-User  <input type="hidden" name="advert.user.id" value="${advert?.user.id}"> </br>
-
-<button type="submit">Send </button>
-</form> -->
-
 <form action="@{Adverts.add}" class="needs-validation" novalidate>
     <div class="form-group">
       <label for="uname">Description:</label>
@@ -92,12 +68,6 @@ User  <input type="hidden" name="advert.user.id" value="${advert?.user.id}"> </b
     <div class="form-group">
       <label for="bds">Beds:</label>
       <input type="number" class="form-control" id="bds" placeholder="Enter beds" name="advert.beds" value="${advert?.beds}" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group">
-      <label for="usr">User:</label>
-      <input type="number" class="form-control" id="usr" placeholder="Enter user" name="advert.user" value="${advert?.user}" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>

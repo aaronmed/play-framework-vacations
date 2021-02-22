@@ -1,6 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'List of books' /}
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <div class="topnav">
   <a class="active" href="/home">Home</a>
   #{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">My adverts</a>#{/if} 
