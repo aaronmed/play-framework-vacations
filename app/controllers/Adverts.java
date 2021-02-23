@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,7 +22,10 @@ public class Adverts extends Controller {
 		render(iduser, date);
 	}
 	
-	public static void add(Advert advert) {
+	public static void add(Advert advert, File photo) {
+		photo.renameTo(new File("./uploads/" + photo.getName()));
+		
+		advert.photoName = photo.getName();
 		advert.save();
 		listByUser();
 	}
@@ -58,4 +62,18 @@ public class Adverts extends Controller {
 		advert.delete();
 		listByUser();
 	}
+	
+	public static String listpostman() {
+		List<Advert> adverts = Advert.findAll();
+		String total = "";
+		for (Advert a: adverts) {
+			total += a.toString();
+		}
+		return total;
+	}
+	
+	public static void addpostman(Advert advert) {
+		advert.save();
+	}
+
 }

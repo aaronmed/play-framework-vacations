@@ -8,52 +8,314 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+	<!-- MDB -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-	<link href="@{'/public/stylesheets/buttons.css'}" rel="stylesheet" />
+	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+
+	<link href="@{'/public/stylesheets/styles.css'}" rel="stylesheet" />
 </head>
 
 <body>
-	<div class="topnav">
-		<a href="/home">Inicio</a>
-		#{if session.get("user.username") != null}<a href="@{Adverts.listByUser}">Mis anuncios</a>#{/if}
-		#{if session.get("user.username") != null}<a class="active" href="@{Books.listByUser}">Mis reservas</a>#{/if}
-		<a href="#contact">Contacto</a>
-		<a href="#contact">About us</a>
-		#{if session.get("user.username") == null} <a href="/login">Login</a> #{/if}
-		#{if session.get("user.username") != null} <a href="@{Login.logout}">Logout</a> #{/if}
-	</div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+		<a class="navbar-brand mx-2" href="#">
+			<img src="@{'/public/images/logo.png'}" height="30" alt="" loading="lazy">
+		  </a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/home">Home</a>
+          </li>
+          #{if session.get("user.username") != null}
+          <li class="nav-item">
+            <a class="nav-link" href="@{Adverts.listByUser}">Mis anuncios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="@{Books.listByUser}">Mis reservas</a>
+          </li>
+          #{/if}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          #{if session.get("user.username") == null}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          #{/if}
+          #{if session.get("user.username") != null}
+          <li class="nav-item">
+            <a class="nav-link" href="@{Login.logout}">Logout</a>
+          </li>
+          #{/if}
+          <!-- Navbar dropdown
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li> -->
+        </ul>
+        <!-- Left links -->
 
-	<div class="container">
+        <!-- Search form -->
+        <!-- <form class="d-flex input-group w-auto" action="@{Adverts.list}">
+          <input type="search" name="filter" class="form-control" placeholder="Type query" aria-label="Search" />
+          <button class="btn btn-dark " type="button" data-mdb-ripple-color="light">
+            Search
+          </button>
+        </form> -->
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+	<div class="container mt-4">
 		<div class="row">
-			<div class="col-sm">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 				#{list items:books, as:'b'}
-				<div class="card mb-3" style="max-width: 540px;">
+				<div class="card mb-3">
+					<div class="col-md-1"></div>
 					<div class="row g-0">
-						<div class="col-md-4">
-							<img src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
-								alt="..." width="200" height="150">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<img class="img-fluid"
+								src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
+								alt="..." />
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-1"></div>
+
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
 							<div class="card-body">
 								<h5 class="card-title">${b.advert.description}</h5>
 								<p class="card-text">${b.advert.address}</p>
-								<p class="card-text"><small class="text-muted">${b.start}</small></p>
-								<p class="card-text"><small class="text-muted">${b.end}</small></p>
-								<a class="btn green-button" type="button" href="@{Books.delete(b.id)}">Cancelar
-									reserva</a>
+								<p class="card-text"><small class="text-muted">Inicio: ${b.start}</small></p>
+								<p class="card-text"><small class="text-muted">Final: ${b.end}</small></p>
 							</div>
+						</div>
+						<div class="col-md-1"></div>
+
+						<div class="col-md-9"></div>
+						<div class="col-md-3 mb-4">
+							<button class="btn green-color" type="button" href="@{Books.delete(b.id)}">Cancelar
+								reserva</button>
 						</div>
 					</div>
 				</div>
 				#{/list}
 			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
+
+	 <!-- Footer -->
+	 <footer class="bg-dark text-center text-white mt-5">
+		<!-- Grid container -->
+		<div class="container p-4">
+		  <!-- Section: Social media -->
+		  <section class="mb-4">
+			<!-- Facebook -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+	
+			<!-- Twitter -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+	
+			<!-- Google -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+	
+			<!-- Instagram -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+	
+			<!-- Linkedin -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+	
+			<!-- Github -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+		  </section>
+		  <!-- Section: Social media -->
+	
+		  <!-- Section: Form -->
+		  <section class="">
+			<form action="">
+			  <!--Grid row-->
+			  <div class="row d-flex justify-content-center">
+				<!--Grid column-->
+				<div class="col-auto">
+				  <p class="pt-2">
+					<strong>Sign up for our newsletter</strong>
+				  </p>
+				</div>
+				<!--Grid column-->
+	
+				<!--Grid column-->
+				<div class="col-md-5 col-12">
+				  <!-- Email input -->
+				  <div class="form-outline form-white mb-4">
+					<input type="email" id="form5Example2" class="form-control" />
+					<label class="form-label" for="form5Example2">Email address</label>
+				  </div>
+				</div>
+				<!--Grid column-->
+	
+				<!--Grid column-->
+				<div class="col-auto">
+				  <!-- Submit button -->
+				  <button type="submit" class="btn btn-outline-light mb-4">
+					Subscribe
+				  </button>
+				</div>
+				<!--Grid column-->
+			  </div>
+			  <!--Grid row-->
+			</form>
+		  </section>
+		  <!-- Section: Form -->
+	
+		  <!-- Section: Text -->
+		  <section class="mb-4">
+			<p>
+			  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+			  repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+			  eum harum corrupti dicta, aliquam sequi voluptate quas.
+			</p>
+		  </section>
+		  <!-- Section: Text -->
+	
+		  <!-- Section: Links -->
+		  <section class="">
+			<!--Grid row-->
+			<div class="row">
+			  <!--Grid column-->
+			  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Links</h5>
+	
+				<ul class="list-unstyled mb-0">
+				  <li>
+					<a href="#!" class="text-white">Link 1</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 2</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 3</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 4</a>
+				  </li>
+				</ul>
+			  </div>
+			  <!--Grid column-->
+	
+			  <!--Grid column-->
+			  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Links</h5>
+	
+				<ul class="list-unstyled mb-0">
+				  <li>
+					<a href="#!" class="text-white">Link 1</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 2</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 3</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 4</a>
+				  </li>
+				</ul>
+			  </div>
+			  <!--Grid column-->
+	
+			  <!--Grid column-->
+			  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Links</h5>
+	
+				<ul class="list-unstyled mb-0">
+				  <li>
+					<a href="#!" class="text-white">Link 1</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 2</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 3</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 4</a>
+				  </li>
+				</ul>
+			  </div>
+			  <!--Grid column-->
+	
+			  <!--Grid column-->
+			  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Links</h5>
+	
+				<ul class="list-unstyled mb-0">
+				  <li>
+					<a href="#!" class="text-white">Link 1</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 2</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 3</a>
+				  </li>
+				  <li>
+					<a href="#!" class="text-white">Link 4</a>
+				  </li>
+				</ul>
+			  </div>
+			  <!--Grid column-->
+			</div>
+			<!--Grid row-->
+		  </section>
+		  <!-- Section: Links -->
+		</div>
+		<!-- Grid container -->
+	
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		  © 2020 Copyright:
+		  <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+		</div>
+		<!-- Copyright -->
+	  </footer>
+	  <!-- Footer -->
+	<!-- MDB -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 </body>
 
 </html>
