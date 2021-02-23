@@ -2,3 +2,8 @@
     background-color: #00bf92;
     color: white;
 }
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }

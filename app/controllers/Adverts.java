@@ -35,7 +35,7 @@ public class Adverts extends Controller {
 		
 		List<Advert> adverts = Advert.find("byAddress", filter).fetch();
 		
-		renderTemplate("Application/index.html", adverts);
+		renderTemplate("Adverts/search.html", adverts);
 	}
 	
 	public static void listByUser() {
@@ -43,6 +43,12 @@ public class Adverts extends Controller {
 		List<Advert> adverts = Advert.find("byUser.id", id).fetch();
 		
 		renderTemplate("Adverts/list.html", adverts);
+	}
+	
+	public static void detail(long id) {
+		Advert advert = Advert.findById(id);
+		
+		renderTemplate("Adverts/details.html", advert);
 	}
 	
 	public static void edit(long id) {

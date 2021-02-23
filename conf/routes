@@ -22,5 +22,9 @@ GET		/newadvert								Adverts.form
 
 GET 	/register								Users.form
 
+GET 	/adverts/list							Adverts.list
+
+# GET        /adverts/details                           Adverts.detail
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
