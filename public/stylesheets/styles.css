@@ -17,3 +17,12 @@
   background-color: #ffffff; 
   color: #000000; 
 } 
+
+.dropdown-item:hover{
+  background-color: inherit;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

@@ -23,6 +23,12 @@ public class Users extends Controller {
 		render(users);
 	}
 	
+	public static void list() {
+		Long id =  Long.parseLong(session.get("user.id"));
+		User user = User.findById(id);
+		render(user);
+	}
+	
 	public static void edit(long id) {
 		User user = User.findById(id);
 		renderTemplate("Users/form.html", user);

@@ -23,6 +23,7 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <img src="@{'/public/images/logo.png'}" alt="logo" class="img-fluid mb-4"/>
+        #{if flash.error} <div class="error">${flash.error} </div>#{/if}
         <form action="@{Login.login}">
           <!-- Email input -->
           <div class="form-outline mb-4">

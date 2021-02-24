@@ -23,45 +23,51 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <img src="@{'/public/images/logo.png'}" alt="logo" class="img-fluid mb-4" />
-        <form action="@{Users.add}">
+        <form action="@{Users.add}" class="needs-validation" novalidate>
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <div class="row mb-4">
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form6Example1" class="form-control" name="user.name" />
+                <input type="text" id="form6Example1" class="form-control" name="user.name" required />
                 <label class="form-label" for="form6Example1">First name</label>
+                <div class="invalid-feedback mb-4">Please choose a name.</div>
               </div>
             </div>
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form6Example2" class="form-control" name="user.surname" />
+                <input type="text" id="form6Example2" class="form-control" name="user.surname" required />
                 <label class="form-label" for="form6Example2">Last name</label>
+                <div class="invalid-feedback mb-4">Please choose a surname.</div>
               </div>
             </div>
           </div>
 
           <!-- Text input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form6Example3" class="form-control" name="user.dni" />
+            <input type="text" id="form6Example3" class="form-control" name="user.dni" required />
             <label class="form-label" for="form6Example3">DNI</label>
+            <div class="invalid-feedback">Please choose a DNI.</div>
           </div>
 
           <!-- Text input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form6Example4" class="form-control" name="user.telephone" />
+            <input type="text" id="form6Example4" class="form-control" name="user.telephone" required />
             <label class="form-label" for="form6Example4">Telephone</label>
+            <div class="invalid-feedback">Please choose a telephone.</div>
           </div>
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form6Example5" class="form-control" name="user.username" />
+            <input type="text" id="form6Example5" class="form-control" name="user.username" required />
             <label class="form-label" for="form6Example5">Username</label>
+            <div class="invalid-feedback">Please choose a username.</div>
           </div>
 
           <!-- Number input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form6Example6" class="form-control" name="user.password" />
+            <input type="password" id="form6Example6" class="form-control" name="user.password" required />
             <label class="form-label" for="form6Example6">Password</label>
+            <div class="invalid-feedback">Please choose a password.</div>
           </div>
 
           <!-- Submit button -->
@@ -71,8 +77,9 @@
       <div class="col-md-3"></div>
     </div>
   </div>
+  <script type="text/javascript" src="@{'/public/javascripts/form-validation.js'}""></script>
   <!-- MDB -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+  <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 </body>
 
 </html>

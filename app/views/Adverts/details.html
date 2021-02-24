@@ -43,7 +43,7 @@
             </li>
             #{if session.get("user.username") != null}
             <li class="nav-item">
-              <a class="nav-link active" href="@{Adverts.listByUser}">Mis anuncios</a>
+              <a class="nav-link" href="@{Adverts.listByUser}">Mis anuncios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="@{Books.listByUser}">Mis reservas</a>
@@ -61,28 +61,18 @@
             </li>
             #{/if}
             #{if session.get("user.username") != null}
-            <li class="nav-item">
-              <a class="nav-link" href="@{Login.logout}">Logout</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
+                aria-expanded="false">
+                Perfil
+              </a>
+
+              <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item text-white-50" href="@{Users.list}">Cuenta</a></li>
+                <li><a class="dropdown-item text-white-50" href="@{Login.logout}">Logout</a></li>
+              </ul>
             </li>
             #{/if}
-            <!-- Navbar dropdown
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
-              aria-expanded="false">
-              Dropdown
-            </a>
-            
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
-          </li> -->
           </ul>
           <!-- Left links -->
 
@@ -102,21 +92,22 @@
 
 
     <div class="container mt-4">
-      <div class="col-6">
-        <div class="card h-100">
-          <img
-            src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
-            class="img-fluid list-img" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">${advert.description}</h5>
-            <p class="card-text">${advert.address}</p>
-            <p class="card-text">${advert.price}€ por noche</p>
-            <p class="card-text">${advert.guests}</p>
-            <p class="card-text">${advert.bathrooms}</p>
-            <p class="card-text">${advert.bedrooms}</p>
-            <p class="card-text">${advert.beds}</p>
-            <p class="card-text">${advert.user}</p>
-            <p class="card-text"><small class="text-muted">${advert.published}</small></p>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="card h-100">
+            <img src="../../../uploads/${advert.photoName}" class="img-fluid list-img" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">${advert.description}</h5>
+              <p class="card-text">Dirección: ${advert.address}</p>
+              <p class="card-text">Precio: ${advert.price}€ por noche</p>
+              <p class="card-text">Huéspedes: ${advert.guests}</p>
+              <p class="card-text">Baños: ${advert.bathrooms}</p>
+              <p class="card-text">Habitaciones: ${advert.bedrooms}</p>
+              <p class="card-text">Camas: ${advert.beds}</p>
+              <p class="card-text">Dueño del anuncio: ${advert.user.name} ${advert.user.surname}</p>
+              <p class="card-text"><small class="text-muted">${advert.published}</small></p>
+            </div>
           </div>
         </div>
       </div>
