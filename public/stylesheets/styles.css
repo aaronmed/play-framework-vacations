@@ -26,3 +26,30 @@
   color: red;
   text-align: center;
 }
+
+.checked {
+  color: orange;
+}
+
+body {
+  /* padding: 25px; */
+  background-color: white;
+  color: black;
+  /* font-size: 25px; */
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+#profile-card{
+  background-color:#1f1f1f;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+#footer-align{
+  text-align: right;
+}

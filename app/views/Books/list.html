@@ -97,17 +97,25 @@
 
 	<div class="container mt-4">
 		<div class="row">
+			#{if books.isEmpty()}
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h2 class="d-flex justify-content-center">No tienes reservas</h2>
+			</div>
+			<div class="col-md-4"></div>
+			#{/if}
+
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				#{list items:books, as:'b'}
+
 				<div class="card mb-3">
 					<div class="col-md-1"></div>
 					<div class="row g-0">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
-							<img class="img-fluid"
-								src="https://multimedia.andalucia.org/media/0BC700DB844F4EDFBE00C1FA9B493D71/img/1112772E6D5945A1B89C26E539DD0D99/SE_Catedral_01.jpg?responsive"
-								alt="..." />
+							<a href="@{Adverts.detail(b.advert.id)}"><img class="img-fluid"
+									src="../../../uploads/${b.advert.photoName}" alt="..." /></a>
 						</div>
 						<div class="col-md-2"></div>
 
@@ -122,7 +130,8 @@
 						</div>
 						<div class="col-md-1"></div>
 
-						<div class="col-md-9"></div>
+						<div class="col-md-9">
+						</div>
 						<div class="col-md-3 mb-4">
 							<button class="btn green-color" type="button" href="@{Books.delete(b.id)}">Cancelar
 								reserva</button>

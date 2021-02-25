@@ -22,7 +22,7 @@ public class Login extends Controller {
 		} else {
 			session.put("user.username", username);
 			session.put("user.id", user.id);
-			System.out.println("Login correcto con " + user.username);
+			System.out.println("Login correcto con " + user.username + user.id);
 			Application.index();
 			
 		}

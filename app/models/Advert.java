@@ -29,6 +29,4 @@ public class Advert extends Model {
 				+ price + ", guests=" + guests + ", bathrooms=" + bathrooms + ", bedrooms=" + bedrooms + ", beds="
 				+ beds + ", user=" + user + ", photoName=" + photoName + "] \n";
 	}
-	
-	
 }

@@ -15,4 +15,8 @@ public class Review extends Model {
 	@ManyToOne
 	@JoinColumn(name="advert")
 	public Advert advert;
+	
+	@ManyToOne
+	@JoinColumn(name="user")
+	public User user;
 }

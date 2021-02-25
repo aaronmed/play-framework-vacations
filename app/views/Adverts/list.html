@@ -96,6 +96,14 @@
 
   <div class="container mt-4">
     <div class="row">
+      #{if adverts.isEmpty()}
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+			<h2 class="d-flex justify-content-center">No tienes anuncios</h2>
+			</div>
+			<div class="col-md-4"></div>
+			#{/if}
+
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
         #{list items:adverts, as:'a'}
@@ -117,8 +125,8 @@
               </div>
             </div>
 
-            <div class="col-md-10"></div>
-            <div class="col-md-2 mb-2">
+            <div class="col-sm-10"></div>
+            <div class="col-sm-2 mb-2 ">
               <a href="@{Adverts.edit(a.id)}"><i class="fas fa-edit"></i></a>
               <a href="@{Adverts.delete(a.id)}"><i class=" fas fa-trash"></i></a>
             </div>

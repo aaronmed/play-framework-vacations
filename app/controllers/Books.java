@@ -12,8 +12,15 @@ public class Books extends Controller {
 	}
 	
 	public static void add(Book book) {
-		book.save();
-		form();
+		System.out.println(book.start);
+		System.out.println(book.end);
+		if (book.start.equals("")|| book.end.equals("")) {
+			flash.error("Los datos de la reserva no son correctos");
+			Adverts.detail(book.advert.id);
+		} else {
+			book.save();
+			listByUser();
+		}
 	}
 	
 	public static void list() {
@@ -24,6 +31,8 @@ public class Books extends Controller {
 	public static void listByUser() {
 		Long id =  Long.parseLong(session.get("user.id"));
 		List<Advert> books = Book.find("byUser.id", id).fetch();
+		
+		System.out.println(books.isEmpty());
 		
 		renderTemplate("Books/list.html", books);
 	}

@@ -2,11 +2,13 @@ package controllers;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import models.Advert;
+import models.Review;
 import models.User;
 import play.libs.Crypto;
 import play.mvc.Controller;
@@ -35,9 +37,32 @@ public class Adverts extends Controller {
 	}
 
 	public static void list() {
+		List<Advert> adverts = new ArrayList<Advert>();
 		String filter = params.get("filter");
+		String guestsString = params.get("guests");
+		int guests = 0;
+		
+		if (guestsString.equals("") && filter.trim().equals("")) {
+			System.out.println("1");
+			adverts = Advert.findAll();
+		} else if (filter.trim().equals("")) {
+			System.out.println("2");
+			guests = Integer.parseInt(guestsString);
+			adverts = Advert.find("byGuests", guests).fetch();
+		} else if (guestsString.equals("")) {
+			System.out.println("3");
+			adverts = Advert.find("byAddress", filter).fetch();
+		} else {
+			System.out.println("4");
+			guests = Integer.parseInt(guestsString);
 
-		List<Advert> adverts = Advert.find("byAddress", filter).fetch();
+			List<Advert> advertsAd = Advert.find("byAddress", filter).fetch();
+			for (Advert a : advertsAd) {
+				if (a.guests >= guests) {
+					adverts.add(a);
+				}
+			}
+		}
 
 		renderTemplate("Adverts/search.html", adverts);
 	}
@@ -51,8 +76,13 @@ public class Adverts extends Controller {
 
 	public static void detail(long id) {
 		Advert advert = Advert.findById(id);
-
-		renderTemplate("Adverts/details.html", advert);
+		List<Review> reviews = Review.find("byAdvert.id", id).fetch();
+		Long iduser = 0L;
+		if (session.get("user.id") != null) {
+			iduser = Long.parseLong(session.get("user.id"));
+		}
+		
+		renderTemplate("Adverts/details.html", advert, reviews, iduser);
 	}
 
 	public static void edit(long id) {

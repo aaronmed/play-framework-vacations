@@ -92,20 +92,17 @@
     <!-- Navbar -->
 
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Nombre: ${user.name}</li>
-                        <li class="list-group-item">Apellido: ${user.surname}</li>
-                        <li class="list-group-item">DNI: ${user.dni}</li>
-                        <li class="list-group-item">Teléfono: ${user.telephone}</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                        <a href="#" class="card-link">Borrar</a>
-                    </div>
+        <div class="card rounded-l" id="profile-card" style="width:400px">
+            <img class="card-img-top" src="@{'/public/images/account.png'}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">${user.name} ${user.surname}</h4>
+                <p class="card-text">Nombre de usuario: ${user.username}</p>
+                <p class="card-text">DNI: ${user.dni}</p>
+                <p class="card-text">Teléfono de contacto: ${user.telephone}</p>
+                <div class="card-footer" id="footer-align">
+                    <a href="@{Users.edit(user.id)}" class="card-link">Editar perfil</a>
+                    <a href="@{Users.delete(user.id)}" class="card-link" data-toggle="popover-click"
+                        style="color: red;">Eliminar cuenta</a>
                 </div>
             </div>
         </div>

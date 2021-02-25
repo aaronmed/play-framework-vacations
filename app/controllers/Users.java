@@ -31,11 +31,13 @@ public class Users extends Controller {
 	
 	public static void edit(long id) {
 		User user = User.findById(id);
-		renderTemplate("Users/form.html", user);
+		renderTemplate("Users/edit.html", user);
 	}
 	
 	public static void delete(long id) {
 		User user = User.findById(id);
 		user.delete();
+		session.clear();
+        renderTemplate("Application/index.html");
 	}
 }

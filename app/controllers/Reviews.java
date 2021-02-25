@@ -1,5 +1,8 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import models.Review;
@@ -11,8 +14,14 @@ public class Reviews extends Controller {
 	}
 	
 	public static void add(Review review) {
+		Date today = Calendar.getInstance().getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(today);
+		
+		review.published = date;
 		review.save();
-		form();
+		System.out.print(review.advert.id);
+		Adverts.detail(review.advert.id);
 	}
 	
 	public static void show() {
@@ -28,5 +37,6 @@ public class Reviews extends Controller {
 	public static void delete(long id) {
 		Review review = Review.findById(id);
 		review.delete();
+		Adverts.detail(review.advert.id);
 	}
 }

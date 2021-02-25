@@ -1,12 +1,14 @@
 #{extends 'main.html' /}
-#{set title:'Details Advert' /}
+#{set title:'Advert' /}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
@@ -14,9 +16,10 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link href="@{'/public/stylesheets/styles.css'}" rel="stylesheet" />
+
+  <script src="@{'/public/javascripts/changeMode.js'}"></script>
 
   <head>
 
@@ -55,6 +58,11 @@
             <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" onclick="changeMode();">
+                Modo oscuro
+              </a>
+            </li> -->
             #{if session.get("user.username") == null}
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
@@ -75,14 +83,6 @@
             #{/if}
           </ul>
           <!-- Left links -->
-
-          <!-- Search form -->
-          <!-- <form class="d-flex input-group w-auto" action="@{Adverts.list}">
-          <input type="search" name="filter" class="form-control" placeholder="Type query" aria-label="Search" />
-          <button class="btn btn-dark " type="button" data-mdb-ripple-color="light">
-            Search
-          </button>
-        </form> -->
         </div>
         <!-- Collapsible wrapper -->
       </div>
@@ -93,28 +93,181 @@
 
     <div class="container mt-4">
       <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="card h-100">
+
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7">
+          <div class="card">
             <img src="../../../uploads/${advert.photoName}" class="img-fluid list-img" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">${advert.description}</h5>
-              <p class="card-text">Dirección: ${advert.address}</p>
-              <p class="card-text">Precio: ${advert.price}€ por noche</p>
-              <p class="card-text">Huéspedes: ${advert.guests}</p>
-              <p class="card-text">Baños: ${advert.bathrooms}</p>
-              <p class="card-text">Habitaciones: ${advert.bedrooms}</p>
-              <p class="card-text">Camas: ${advert.beds}</p>
-              <p class="card-text">Dueño del anuncio: ${advert.user.name} ${advert.user.surname}</p>
-              <p class="card-text"><small class="text-muted">${advert.published}</small></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <h5 class="card-title">${advert.description}</h5>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Dirección: ${advert.address}</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Precio: ${advert.price}€ por noche</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Huéspedes: ${advert.guests}</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Baños: ${advert.bathrooms}</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Habitaciones: ${advert.bedrooms}</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Camas: ${advert.beds}</p>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">Anfitrión: ${advert.user.name} ${advert.user.surname}</p>
+                </li>
+                <li class="list-group-item"><small class="text-muted">${advert.published}</small></li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+        <div class="col-sm-4 mt-4">
+          <form action="@{Books.add}">
+            <div>
+              <label for="arrive">Fecha de llegada</label>
+              <input placeholder="Selected date" type="date" class="form-control" id="arrive" name="book.start"
+                min="2021-02-25">
+            </div>
+            <div class="mt-4">
+              <label for="departure">Fecha de salida</label>
+              <input placeholder="Selected date" type="date" class="form-control" id="departure" name="book.end"
+                min="2021-02-25">
+            </div>
+            <div class="mt-4">
+              <label for="guests">Nº de huéspedes</label>
+              <input placeholder="Seleccione nº de huéspedes" type="number" class="form-control" id="guests"
+                name="guests" min="1" max="${advert.guests}">
+            </div>
+            <div>
+              <input type="hidden" name="book.advert.id" value="${advert?.id}">
+              <input type="hidden" name="book.user.id" value="${iduser}">
+            </div>
+            #{if flash.error} <div class="error">${flash.error} </div>#{/if}
+            #{if session.get("user.username") == null}
+            <div class="mt-4 d-grid gap-2 d-inline-block" data-mdb-toggle="tooltip"
+              title="Necesitas iniciar sesión para poder reservar">
+              <button class="btn green-color" style="pointer-events: none" type="button" disabled>
+                Reservar
+              </button>
+            </div>
+            #{/if}
+            #{if session.get("user.username") != null && !session.get("user.id").equals(String.valueOf(advert.user.id))}
+            <div class="mt-4 d-grid gap-2">
+              <button type="submit" class="btn green-color">Reservar</button>
+            </div>
+            #{/if}
+            #{if session.get("user.id").equals(String.valueOf(advert.user.id))}
+            <div class="mt-4 d-grid gap-2 d-inline-block" data-mdb-toggle="tooltip"
+              title="Este anuncio es tuyo, no puedes reservar tu propio anuncio">
+              <button class="btn green-color" style="pointer-events: none" type="button" disabled>
+                Reservar
+              </button>
+            </div>
+            #{/if}
+          </form>
+          <div class="card mt-4">
+            <div class="card-header">CRÍTICAS</div>
+
+            <div class="card-body">
+              #{list items:reviews, as:'r'}
+              <h5 class="card-title">${r.description}</h5>
+              <p class="card-text">
+                ${r.stars}
+                #{if r.stars > 0}<span class="fa fa-star checked"></span>#{/if}
+                #{if r.stars > 1}<span class="fa fa-star checked"></span>#{/if}
+                #{if r.stars > 2}<span class="fa fa-star checked"></span>#{/if}
+                #{if r.stars > 3}<span class="fa fa-star checked"></span>#{/if}
+                #{if r.stars > 4}<span class="fa fa-star checked"></span>#{/if}</br>
+                <small class="text-muted">${r.user.name} ${r.user.surname} | ${r.published}</small></br>
+                #{if session.get("user.username") == r.user.username}
+                <a href="@{Reviews.delete(r.id)}"><small class="text-muted">Borrar</small></a>
+                #{/if}
+              </p>
+
+              #{/list}
+            </div>
+          </div>
+
+          #{if session.get("user.username") == null}
+          <div class="mt-4 d-grid gap-2 d-inline-block" data-mdb-toggle="tooltip"
+            title="Necesitas iniciar sesión para poder enviar una crítica">
+            <button class="btn green-color" style="pointer-events: none" type="button" disabled>
+              Enviar crítica
+            </button>
+          </div>
+          #{/if}
+          #{if session.get("user.username") != null && !session.get("user.id").equals(String.valueOf(advert.user.id))}
+          <!-- Button trigger modal -->
+          <div class="mt-4 d-grid gap-2">
+            <button type="button" class="btn green-color" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+              Enviar crítica
+            </button>
+          </div>
+          #{/if}
+          #{if session.get("user.id").equals(String.valueOf(advert.user.id))}
+          <div class="mt-4 d-grid gap-2 d-inline-block" data-mdb-toggle="tooltip"
+            title="Este anuncio es tuyo, no puedes enviar una crítica de tu propio anuncio">
+            <button class="btn green-color" style="pointer-events: none" type="button" disabled>
+              Enviar crítica
+            </button>
+          </div>
+          #{/if}
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Nueva crítica</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Message input -->
+                  <form action="@{Reviews.add}" method="POST">
+                    <div class="form-outline mb-4">
+                      <textarea class="form-control" id="form4Example3" rows="4" name="review.description"></textarea>
+                      <label class="form-label" for="form4Example3" name="review.description" value="review?.description">Mensaje</label>
+                    </div>
+                    <div class="container mb-4">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <div class="range">
+                            <input type="range" class="form-range" min="0" max="5" id="customRange2"
+                              name="review.stars" value="review?.stars"/>
+                          </div>
+                        </div>
+                        <div class="col-md-1"><span class="fa fa-star checked"></span></div>
+                      </div>
+                      <input type="hidden" name="review.advert.id" value="${advert.id}"">
+                      <input type="hidden" name="review.user.id" value="${iduser}">
+                    </div>
+                    <div class=" modal-footer">
+                      <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">
+                        Cerrar
+                      </button>
+                      <button type="submit" class="btn green-color">Añadir</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MDB -->
+        <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
   </body>
 
 </html>
