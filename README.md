@@ -206,7 +206,7 @@ You can found [here](https://github.com/aaronmed/play-framework-vacations/wiki) 
 
 ### User manual
 
-[Here](https://github.com/aaronmed/play-framework-vacations/tree/master/documentation/vacationsapp.pdf) you have the user manual to know how to navigate through the application:
+[Here](https://github.com/aaronmed/play-framework-vacations/blob/master/documentation/VacationsApp.pdf) you have the user manual to know how to navigate through the application:
 
 
 <!-- ROADMAP -->
