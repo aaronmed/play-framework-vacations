@@ -15,6 +15,7 @@ public class Login extends Controller {
 				username, Crypto.passwordHash(password)).first();
 		
 		if (user == null) {
+			
 			System.out.println("Login incorrecto");
 			flash.error("Las credenciales no son correctas");
 			Login.form();
@@ -24,9 +25,9 @@ public class Login extends Controller {
 			session.put("user.id", user.id);
 			System.out.println("Login correcto con " + user.username + user.id);
 			Application.index();
-			
 		}
 	}
+	
 	
 	public static void logout() {
 		session.clear();
