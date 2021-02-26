@@ -33,6 +33,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#user-manual">User Manual</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -202,6 +203,11 @@ Here we can find the Postman [documentation](https://documenter.getpostman.com/v
 ### Installation
 
 You can found [here](https://github.com/aaronmed/play-framework-vacations/wiki) the installation manual
+
+### User manual
+
+[Here](https://github.com/aaronmed/play-framework-vacations/tree/master/documentation/vacationsapp.pdf) you have the user manual to know how to navigate through the application:
+
 
 <!-- ROADMAP -->
 ## Roadmap
