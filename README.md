@@ -35,14 +35,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#planning">Planning</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#-prerequisites">Prerequisites</a></li>
-    <li><a href="#-built-with">Built with</a></li>
-    <li><a href="#-Acknowledgements">Acknowledgements</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#built-with">Built with</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -206,7 +205,7 @@ You can found [here](https://github.com/aaronmed/play-framework-vacations/wiki) 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues]() for a list of proposed features (and known issues).
+See the [open issues](https://github.com/aaronmed/play-framework-vacations/issues) for a list of proposed features (and known issues).
 
 
 
@@ -223,8 +222,9 @@ Contributions are what make the open source community such an amazing place to b
 
 
 ## Planning
+The planning that has been carried out for this project has been done on GitHub. Within the repository where we have uploaded the project, there is a function that allows you to organize the tasks you want to perform. To have planned these tasks, it is necessary to create them first, therefore, this creation is done in the issues section. After you create all the tasks, in the Projects section, a project is created that allows you to plan those tasks. And there are several planning options, in my case I used the authomatic-kanvas. This option allows you to organize tasks into three parts: to do, in progress, and done. Finally, you are putting the tasks according to how you have done them.
 
-You can see my [planning](https://github.com/aaronmed/play-framework-vacations/projects/1) that I have done in the github repository itself
+Here can see my [planning](https://github.com/aaronmed/play-framework-vacations/projects/1) 
 
 <!-- LICENSE -->
 ## License
