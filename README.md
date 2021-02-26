@@ -74,7 +74,7 @@ A simple application in which users will be able to view advertisements for holi
 
 #### User Requirements
 * Platform
-  - Mobile application
+  - Responsive web
 
 * Users will be able to search for ads to book by indicating the location where they want to stay, the dates they want and the number of guests that will be
 
@@ -86,52 +86,48 @@ A simple application in which users will be able to view advertisements for holi
 
 #### Mockup
 <p align="center">
+
+*Screen 1:* First screen as soon as we enter the application in which we find a small form to be able to make searches of announcements
 <img src="images/mockup1.png" alt="Mockup1">
  </p>
 
-*Screen 1:* First screen as soon as we enter the application in which we find a small form to be able to make searches of announcements
+*Screen 2:* Menu to login where we will have to give our user name and password, if we do not have an account, we have the button to register
 
 <p align="center">
-<img src="images/mockup2.png" alt="Mockup2">
+<img src="images/mockup2.png" alt="Mockup4">
 </p>
 
- *Screen 2:* The menu that appears when we are not logged in to the application that simply allows us to search and log in
+*Screen 3:* When you do a search, this would be the screen where the entire list of ads meeting the search criteria would be displayed
 
 <p align="center">
-<img src="images/mockup3.png" alt="Mockup3">
+<img src="images/mockup3.png" alt="Mockup5">
 </p>
 
- *Screen 3:* The menu that appears when we are logged in to the application that allows us to go to the search, see our ads, view our reservations and log out
+*Screen 4:* This is the window that shows the details of the ads. We can see all the attributes of the ads, such as the beds, guests, rooms, etc. We also see the reviews that this ad has and an average of them. There is also a button to book the ad if you wish.
 
 <p align="center">
-<img src="images/mockup4.png" alt="Mockup4">
+<img src="images/mockup4.png" alt="Mockup6">
 </p>
 
-*Screen 4:* Menu to login where we will have to give our user name and password, if we do not have an account, we have the button to register
+*Screen 5:* In this window we can see the reservations associated to our user once we are logged in, it only allows us to cancel the booking.
 
 <p align="center">
-<img src="images/mockup5.png" alt="Mockup5">
+<img src="images/mockup5.png" alt="Mockup7">
 </p>
 
-*Screen 5:* When you do a search, this would be the screen where the entire list of ads meeting the search criteria would be displayed
+*Screen 6:* In this window you can see your own advertisements created once the user is logged in, you have the option to edit or delete each of the advertisements. Then you have the option to create a new advertisement in the button below the advertisement list.
 
 <p align="center">
-<img src="images/mockup6.png" alt="Mockup6">
+<img src="images/mockup6.png" alt="Mockup8">
 </p>
 
-*Screen 6:* This is the window that shows the details of the ads. We can see all the attributes of the ads, such as the beds, guests, rooms, etc. We also see the reviews that this ad has and an average of them. There is also a button to book the ad if you wish.
+*Screen 7:* In this window you can see your own profile where you can edit o delete your account.
 
 <p align="center">
-<img src="images/mockup7.png" alt="Mockup7">
+<img src="images/mockup7.png" alt="Mockup8">
 </p>
 
-*Screen 7:* In this window we can see the reservations associated to our user once we are logged in, it only allows us to cancel the booking.
 
-<p align="center">
-<img src="images/mockup8.png" alt="Mockup8">
-</p>
-
-*Screen 8:* In this window you can see your own advertisements created once the user is logged in, you have the option to edit or delete each of the advertisements. Then you have the option to create a new advertisement in the button below the advertisement list.
 
 #### Usability
 1. **The user must be able to customize the interface:** there is a toggle to select the theme we want between: light and dark
@@ -142,10 +138,6 @@ A simple application in which users will be able to view advertisements for holi
 
 2. **Colour:** only two colours are used throughout the application interface, a light green and either black or white depending on the theme chosen
 
-<p align="center">
-<img src="images/usability3.png" alt="Usability3">
-<img src="images/usability4.png" alt="Usability4">
-</p>
 
 3. **Text writing in the interface:** there is little text in most of the application, especially when we have large lists, either of advertisements or books, we simply display the most necessary data to identify
 <p align="center">
@@ -196,13 +188,9 @@ A simple application in which users will be able to view advertisements for holi
 
 11. **The font**: is constant throughout the application always the same and using the bold and the size of the interface to highlight some information, especially in the lists of announcements, books, etc
 
-<p align="center">
-<img src="images/usability15.png" alt="Usability14">
-</p>
-
 #### Postman
 
-Here we can find the Postman [documentation]()
+Here we can find the Postman [documentation](https://documenter.getpostman.com/view/13041013/TWDcGEvM)
 
 ## Technology comparison
 <img src="images/comparative.png" alt="Comparative">
@@ -213,7 +201,7 @@ Here we can find the Postman [documentation]()
 
 ### Installation
 
-You can found [here]() the installation manual
+You can found [here](https://github.com/aaronmed/play-framework-vacations/wiki) the installation manual
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -245,17 +233,25 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Prerequisites
 
-* [Git]( https://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [MySQL](https://www.mysql.com/)
 * [Java8](https://www.java.com/es/)
 
 ## Built With
 
 * [Postman](https://www.postman.com/)
-* [MySql](https://www.mysql.com/)
+
+    Postman is a popular API client that makes it easy for developers to create, share, test and document APIs. This is done by allowing users to create and save simple and complex HTTP/s requests, as well as read their responses. The result - more efficient and less tedious work.
+* [MySql](https://www.mysql.com)
+
+    MySql is an application framework and inversion of control container for the Java platform. The framework's core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE (Enterprise Edition) platform. Although the framework does not impose any specific programming model, it has become popular in the Java community as an addition to the Enterprise JavaBeans (EJB) model. 
+
 * [Play-Framework](https://www.playframework.com/) Versión 1.4.5
 
+  Play is a high-productivity Java and Scala web application framework that integrates components and APIs for modern web application development. Play was developed by web developers for web application development.
+
+  You will find Play’s Model-View-Controller (MVC) architecture familiar and easy to learn. Play provides concise and functional programming patterns
+
 ## Acknowledgements
-* [Tiburcio Cruz](https://github.com/tcrurav)
 * [Cristian Eliel Bruna Mendez](https://github.com/elbrus19)
 
