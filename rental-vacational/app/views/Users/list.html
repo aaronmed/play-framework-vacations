@@ -100,6 +100,12 @@
                 <p class="card-text">DNI: ${user.dni}</p>
                 <p class="card-text">Teléfono de contacto: ${user.telephone}</p>
                 <div class="card-footer" id="footer-align">
+                    <a href="@{Reports.generateReport(session.get('user.id'),'reviews')}" class="card-link"
+                        target="_blank">Informe críticas</a>
+                    <a href="@{Reports.generateReport(session.get('user.id'),'users')}" class="card-link"
+                        data-toggle="popover-click" target="_blank">Informe usuario</a>
+                </div>
+                <div class="card-footer" id="footer-align">
                     <a href="@{Users.edit(user.id)}" class="card-link">Editar perfil</a>
                     <a href="@{Users.delete(user.id)}" class="card-link" data-toggle="popover-click"
                         style="color: red;">Eliminar cuenta</a>

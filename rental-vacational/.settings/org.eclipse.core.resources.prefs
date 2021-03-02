@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+encoding//app/views/Reports/adverts.jrxml=UTF-8
+encoding//app/views/Reports/books.jrxml=UTF-8
+encoding//app/views/Reports/reviews.jrxml=UTF-8
+encoding//app/views/Reports/users.jrxml=UTF-8
 encoding//app/views/main.html=UTF-8
 encoding/<project>=UTF-8

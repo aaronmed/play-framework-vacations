@@ -65,6 +65,10 @@
 						<a class="nav-link" href="/login">Login</a>
 					</li>
 					#{/if}
+					<li class="nav-item">
+						<a class="nav-link" href="@{Reports.generateReport(session.get('user.id'),'books')}"
+							target="_blank">Generar informe</a>
+					</li>
 					#{if session.get("user.username") != null}
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
