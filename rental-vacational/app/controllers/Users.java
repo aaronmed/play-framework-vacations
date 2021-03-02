@@ -2,7 +2,9 @@ package controllers;
 
 import java.util.List;
 
+import models.Advert;
 import models.User;
+import play.libs.Crypto;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -39,5 +41,19 @@ public class Users extends Controller {
 		user.delete();
 		session.clear();
         renderTemplate("Application/index.html");
+	}
+	
+	public static String listUser() {
+		List<User> users = User.findAll();
+		String total = "";
+		for (User u : users) {
+			total += u.toString();
+		}
+		return total;
+	}
+
+	public static void addUser(User user) {
+		user.save();
+		
 	}
 }

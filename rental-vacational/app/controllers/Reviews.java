@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import models.Advert;
 import models.Review;
 import play.mvc.Controller;
 
@@ -38,5 +39,18 @@ public class Reviews extends Controller {
 		Review review = Review.findById(id);
 		review.delete();
 		Adverts.detail(review.advert.id);
+	}
+	
+	public static String listReview() {
+		List<Review> reviews = Review.findAll();
+		String total = "";
+		for (Review r : reviews) {
+			total += r.toString();
+		}
+		return total;
+	}
+
+	public static void addReview(Review review) {
+		review.save();
 	}
 }

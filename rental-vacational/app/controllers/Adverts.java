@@ -103,7 +103,7 @@ public class Adverts extends Controller {
 		listByUser();
 	}
 
-	public static String listpostman() {
+	public static String listAdvert() {
 		List<Advert> adverts = Advert.findAll();
 		String total = "";
 		for (Advert a : adverts) {
@@ -112,8 +112,7 @@ public class Adverts extends Controller {
 		return total;
 	}
 
-	public static void addpostman(Advert advert) {
+	public static void addAdvert(Advert advert) {
 		advert.save();
 	}
-
 }

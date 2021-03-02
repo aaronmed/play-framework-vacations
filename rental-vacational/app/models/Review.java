@@ -19,4 +19,10 @@ public class Review extends Model {
 	@ManyToOne
 	@JoinColumn(name="user")
 	public User user;
+
+	@Override
+	public String toString() {
+		return "Review [description=" + description + ", stars=" + stars + ", published=" + published + ", advert="
+				+ advert + ", user=" + user + "] \n";
+	}
 }
