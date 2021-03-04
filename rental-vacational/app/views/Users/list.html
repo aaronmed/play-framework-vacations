@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/styles.css'}">
 
+    <script src="@{'/public/javascripts/changeMode.js'}"></script>
 </head>
 
 <body>
@@ -51,21 +52,13 @@
                     </li>
                     #{/if}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
                     </li>
                     #{if session.get("user.username") == null}
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                     #{/if}
-                    <!-- <li class="nav-item">
-            <button type="button" class="btn btn-dark btn-rounded" onclick="changeMode();">
-              Modo oscuro
-            </button>
-          </li> -->
                     <!-- Navbar dropdown -->
                     #{if session.get("user.username") != null}
                     <li class="nav-item dropdown">
@@ -80,6 +73,9 @@
                         </ul>
                     </li>
                     #{/if}
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/Perfil.html" target="_blank">Ayuda</a>
+                    </li>
                 </ul>
                 <!-- Left links -->
 
@@ -92,20 +88,35 @@
     <!-- Navbar -->
 
     <div class="container mt-4">
-        <div class="card rounded-l" id="profile-card" style="width:400px">
-            <img class="card-img-top" src="@{'/public/images/account.png'}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">${user.name} ${user.surname}</h4>
-                <p class="card-text">Nombre de usuario: ${user.username}</p>
-                <p class="card-text">DNI: ${user.dni}</p>
-                <p class="card-text">Teléfono de contacto: ${user.telephone}</p>
-                <div class="card-footer" id="footer-align">
-                    <a href="@{Users.edit(user.id)}" class="card-link">Editar perfil</a>
-                    <a href="@{Users.delete(user.id)}" class="card-link" data-toggle="popover-click"
-                        style="color: red;">Eliminar cuenta</a>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card rounded-l">
+                    <img class="card-img-top" src="@{'/public/images/account.png'}" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">${user.name} ${user.surname}</h4>
+                        <p class="card-text">Nombre de usuario: ${user.username}</p>
+                        <p class="card-text">DNI: ${user.dni}</p>
+                        <p class="card-text">Teléfono de contacto: ${user.telephone}</p>
+                        <div class="card-footer" id="footer-align">
+                            <a href="@{Reports.generateReport(session.get('user.id'),'reviews')}" class="card-link"
+                                target="_blank">Informe críticas</a>
+                            <a href="@{Reports.generateReport(session.get('user.id'),'users')}" class="card-link"
+                                data-toggle="popover-click" target="_blank">Informe usuario</a>
+                        </div>
+                        <div class="card-footer" id="footer-align">
+                            <a href="@{Users.edit(user.id)}" class="card-link">Editar perfil</a>
+                            <a href="@{Users.delete(user.id)}" class="card-link" data-toggle="popover-click"
+                                style="color: red;">Eliminar cuenta</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4">#{if flash.error}<div class="alert alert-dark" role="alert">
+                ${flash.error}
+            </div>#{/if}</div>
         </div>
+
     </div>
 
     <!-- Footer -->

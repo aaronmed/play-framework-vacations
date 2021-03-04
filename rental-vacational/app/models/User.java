@@ -18,4 +18,10 @@ public class User extends Model {
 	public void setPassword(String s) {
 		password = Crypto.passwordHash(s);
 	}
+
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", name=" + name + ", surname=" + surname
+				+ ", dni=" + dni + ", telephone=" + telephone + "] \n";
+	}
 }

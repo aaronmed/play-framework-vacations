@@ -26,6 +26,8 @@ GET 	/adverts/list							Adverts.list
 
 GET		/user									Users.list
 
+GET		/report									Reports.generateReport
+
 # GET        /adverts/details                           Adverts.detail
 
 # Catch all

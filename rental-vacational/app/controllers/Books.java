@@ -47,4 +47,17 @@ public class Books extends Controller {
 		book.delete();
 		listByUser();
 	}
+	
+	public static String listBook() {
+		List<Book> books = Book.findAll();
+		String total = "";
+		for (Book b : books) {
+			total += b.toString();
+		}
+		return total;
+	}
+
+	public static void addBook(Book book) {
+		book.save();
+	}
 }

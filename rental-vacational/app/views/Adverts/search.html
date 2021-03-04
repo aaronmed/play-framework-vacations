@@ -51,13 +51,7 @@
           </li>
           #{/if}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="myFunction()">Modo oscuro</a>
+            <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
           </li>
           #{if session.get("user.username") == null}
           <li class="nav-item">

@@ -18,6 +18,8 @@
 	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
 
 	<link href="@{'/public/stylesheets/styles.css'}" rel="stylesheet" />
+
+	<script src="@{'/public/javascripts/changeMode.js'}"></script>
 </head>
 
 <body>
@@ -50,10 +52,7 @@
 					</li>
 					#{/if}
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contacto</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About us</a>
+						<a class="nav-link" onclick="darkMode()">Modo oscuro</a>
 					</li>
 					#{if session.get("user.username") == null}
 					<li class="nav-item">
@@ -65,6 +64,10 @@
 						<a class="nav-link" href="/login">Login</a>
 					</li>
 					#{/if}
+					<li class="nav-item">
+						<a class="nav-link" href="@{Reports.generateReport(session.get('user.id'),'books')}"
+							target="_blank">Generar informe</a>
+					</li>
 					#{if session.get("user.username") != null}
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -78,6 +81,9 @@
 						</ul>
 					</li>
 					#{/if}
+					<li class="nav-item">
+						<a class="nav-link" href="http://localhost:8080/Reservas.html" target="_blank">Ayuda</a>
+					</li>
 				</ul>
 				<!-- Left links -->
 

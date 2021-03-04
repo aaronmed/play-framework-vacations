@@ -1,4 +1,4 @@
 # Application dependencies
 
 require:
-    - play
+    - play -> pdf 0.9

@@ -18,6 +18,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
   <link href="@{'/public/stylesheets/styles.css'}" rel="stylesheet" />
+
+  <script src="@{'/public/javascripts/changeMode.js'}"></script>
 </head>
 
 <body>
@@ -49,10 +51,7 @@
           </li>
           #{/if}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
+            <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
           </li>
           #{if session.get("user.username") == null}
           <li class="nav-item">
@@ -64,6 +63,9 @@
             <a class="nav-link" href="/login">Login</a>
           </li>
           #{/if}
+          <li class="nav-item">
+            <a class="nav-link" href="@{Reports.generateReport(session.get('user.id'),'adverts')}" target="_blank">Generar informe</a>
+          </li>
           #{if session.get("user.username") != null}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
@@ -77,6 +79,9 @@
             </ul>
           </li>
           #{/if}
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/Anuncios.html" target="_blank">Ayuda</a>
+          </li>
         </ul>
         <!-- Left links -->
 

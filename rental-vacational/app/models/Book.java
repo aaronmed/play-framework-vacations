@@ -19,4 +19,10 @@ public class Book extends Model {
 	
 	public String start;
 	public String end;
+	@Override
+	public String toString() {
+		return "Book [user=" + user + ", advert=" + advert + ", start=" + start + ", end=" + end + "] \n";
+	}
+	
+	
 }
