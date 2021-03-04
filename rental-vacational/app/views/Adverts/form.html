@@ -16,6 +16,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
   <link href="@{'/public/stylesheets/styles.css'}" rel="stylesheet" />
+
+  <script src="@{'/public/javascripts/changeMode.js'}"></script>
 </head>
 
 <body>
@@ -47,10 +49,7 @@
           </li>
           #{/if}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
+            <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
           </li>
           #{if session.get("user.username") == null}
           <li class="nav-item">
@@ -93,51 +92,51 @@
       <input type="hidden" name="advert.user.id" value="${iduser}">
       <div class="form-group">
         <label for="uname">Descripción:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Intrdouzca la descripción" name="advert.description"
+        <input type="text" class="form-control" id="uname" placeholder="Introduzca la descripción" name="advert.description"
           value="${advert?.description}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
       <div class="form-group">
         <label for="adrs">Dirección:</label>
-        <input type="text" class="form-control" id="adrs" placeholder="Intrdouzca la dirección" name="advert.address"
+        <input type="text" class="form-control" id="adrs" placeholder="Introduzca la dirección" name="advert.address"
           value="${advert?.address}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
-      <input type="hidden" class="form-control" id="pbh" placeholder="Intrdouzca la fecha de publicación" name="advert.published"
+      <input type="hidden" class="form-control" id="pbh" placeholder="Introduzca la fecha de publicación" name="advert.published"
         value="${date}" required>
       <div class="form-group">
         <label for="prc">Precio:</label>
-        <input type="number" step="0.1" class="form-control" id="prc" placeholder="Intrdouzca el precio" name="advert.price"
+        <input type="number" step="0.1" class="form-control" id="prc" placeholder="Introduzca el precio" name="advert.price"
           value="${advert?.price}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
       <div class="form-group">
         <label for="gts">Huéspedes:</label>
-        <input type="number" class="form-control" id="gts" placeholder="Intrdouzca el número de huéspedes" name="advert.guests"
+        <input type="number" class="form-control" id="gts" placeholder="Introduzca el número de huéspedes" name="advert.guests"
           value="${advert?.guests}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
       <div class="form-group">
         <label for="bth">Baños:</label>
-        <input type="number" class="form-control" id="bth" placeholder="Intrdouzca el número de baños" name="advert.bathrooms"
+        <input type="number" class="form-control" id="bth" placeholder="Introduzca el número de baños" name="advert.bathrooms"
           value="${advert?.bathrooms}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
       <div class="form-group">
         <label for="bdr">Dormitorios:</label>
-        <input type="number" class="form-control" id="bdr" placeholder="Intrdouzca el número de dormitorios" name="advert.bedrooms"
+        <input type="number" class="form-control" id="bdr" placeholder="Introduzca el número de dormitorios" name="advert.bedrooms"
           value="${advert?.bedrooms}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
       </div>
       <div class="form-group">
         <label for="bds">Camas:</label>
-        <input type="number" class="form-control" id="bds" placeholder="Intrdouzca el número de camas" name="advert.beds"
+        <input type="number" class="form-control" id="bds" placeholder="Introduzca el número de camas" name="advert.beds"
           value="${advert?.beds}" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellene este campo.</div>

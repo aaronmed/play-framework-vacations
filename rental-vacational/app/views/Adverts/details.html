@@ -53,16 +53,8 @@
             </li>
             #{/if}
             <li class="nav-item">
-              <a class="nav-link" href="#">Contacto</a>
+              <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About us</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" onclick="changeMode();">
-                Modo oscuro
-              </a>
-            </li> -->
             #{if session.get("user.username") == null}
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
@@ -236,14 +228,15 @@
                   <form action="@{Reviews.add}" method="POST">
                     <div class="form-outline mb-4">
                       <textarea class="form-control" id="form4Example3" rows="4" name="review.description"></textarea>
-                      <label class="form-label" for="form4Example3" name="review.description" value="review?.description">Mensaje</label>
+                      <label class="form-label" for="form4Example3" name="review.description"
+                        value="review?.description">Mensaje</label>
                     </div>
                     <div class="container mb-4">
                       <div class="row">
                         <div class="col-md-11">
                           <div class="range">
-                            <input type="range" class="form-range" min="0" max="5" id="customRange2"
-                              name="review.stars" value="review?.stars"/>
+                            <input type="range" class="form-range" min="0" max="5" id="customRange2" name="review.stars"
+                              value="review?.stars" />
                           </div>
                         </div>
                         <div class="col-md-1"><span class="fa fa-star checked"></span></div>

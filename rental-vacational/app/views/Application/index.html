@@ -53,10 +53,7 @@
           </li>
           #{/if}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
+            <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
           </li>
           #{if session.get("user.username") == null}
           <li class="nav-item">
@@ -74,6 +71,9 @@
               <li><a class="dropdown-item text-white-50" href="@{Users.list}">Cuenta</a></li>
               <li><a class="dropdown-item text-white-50" href="@{Login.logout}">Logout</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="@{Application.enterDemo(session.get('user.username'))}">Chat</a>
           </li>
           #{/if}
         </ul>

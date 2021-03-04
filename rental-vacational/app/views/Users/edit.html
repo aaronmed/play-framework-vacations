@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/styles.css'}">
 
+    <script src="@{'/public/javascripts/changeMode.js'}"></script>
+
 </head>
 
 <body>
@@ -51,10 +53,7 @@
                     </li>
                     #{/if}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" onclick="darkMode()">Modo oscuro</a>
                     </li>
                     #{if session.get("user.username") == null}
                     <li class="nav-item">
@@ -110,62 +109,67 @@
             </div>
         </div>
     </div> -->
-    
+
     <div class="container mt-3">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <img src="@{'/public/images/account.png'}" alt="perfil" class="img-fluid mb-4" />
-        <form action="@{Users.add}" class="needs-validation" novalidate>
-        <input type="hidden" name="user.id" value=${user?.id}>
-          <div class="row mb-4">
-            <div class="col">
-              <div class="form-outline">
-                <input type="text" id="form6Example1" class="form-control" name="user.name" value="${user?.name}" required />
-                <label class="form-label" for="form6Example1">Nombre</label>
-                <div class="invalid-feedback mb-4">Please choose a name.</div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-outline">
-                <input type="text" id="form6Example2" class="form-control" name="user.surname" value="${user?.surname}" required />
-                <label class="form-label" for="form6Example2">Apellidos</label>
-                <div class="invalid-feedback mb-4">Please choose a surname.</div>
-              </div>
-            </div>
-          </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <img src="@{'/public/images/account.png'}" alt="perfil" class="img-fluid mb-4" />
+                <form action="@{Users.add}" class="needs-validation" novalidate>
+                    <input type="hidden" name="user.id" value=${user?.id}>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="form6Example1" class="form-control" name="user.name"
+                                    value="${user?.name}" required />
+                                <label class="form-label" for="form6Example1">Nombre</label>
+                                <div class="invalid-feedback mb-4">Please choose a name.</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="form6Example2" class="form-control" name="user.surname"
+                                    value="${user?.surname}" required />
+                                <label class="form-label" for="form6Example2">Apellidos</label>
+                                <div class="invalid-feedback mb-4">Please choose a surname.</div>
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="form6Example5" class="form-control" name="user.username" value="${user?.username}" required />
-            <label class="form-label" for="form6Example5">Nombre de usuario</label>
-            <div class="invalid-feedback">Please choose a username.</div>
-          </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form6Example5" class="form-control" name="user.username"
+                            value="${user?.username}" required />
+                        <label class="form-label" for="form6Example5">Nombre de usuario</label>
+                        <div class="invalid-feedback">Please choose a username.</div>
+                    </div>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="form6Example3" class="form-control" name="user.dni" value="${user?.dni}" required />
-            <label class="form-label" for="form6Example3">DNI</label>
-            <div class="invalid-feedback">Please choose a DNI.</div>
-          </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form6Example3" class="form-control" name="user.dni" value="${user?.dni}"
+                            required />
+                        <label class="form-label" for="form6Example3">DNI</label>
+                        <div class="invalid-feedback">Please choose a DNI.</div>
+                    </div>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="form6Example4" class="form-control" name="user.telephone" value="${user?.telephone}" required />
-            <label class="form-label" for="form6Example4">Teléfono de contacto</label>
-            <div class="invalid-feedback">Please choose a telephone.</div>
-          </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form6Example4" class="form-control" name="user.telephone"
+                            value="${user?.telephone}" required />
+                        <label class="form-label" for="form6Example4">Teléfono de contacto</label>
+                        <div class="invalid-feedback">Please choose a telephone.</div>
+                    </div>
 
-          <div class="form-outline mb-4">
+                    <!-- <div class="form-outline mb-4">
             <input type="password" id="form6Example6" class="form-control" name="user.password" required />
             <label class="form-label" for="form6Example6">Contraseña</label>
             <div class="invalid-feedback">Please choose again a password.</div>
-          </div>
+          </div> -->
 
-          <button type="submit" class="btn green-color btn-block mb-4">Actualizar</button>
-        </form>
-      </div>
-      <div class="col-md-3"></div>
+                    <button type="submit" class="btn green-color btn-block mb-4">Actualizar</button>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
     </div>
-  </div>
-  <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-dark text-center text-white mt-5">
         <!-- Grid container -->
         <div class="container p-4">
@@ -345,8 +349,9 @@
         </div>
         <!-- Copyright -->
     </footer>
-  <script type="text/javascript" src="@{'/public/javascripts/form-validation.js'}""></script>
+    <script type="text/javascript" src="@{'/public/javascripts/form-validation.js'}""></script>
   <!-- MDB -->
   <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 </body>
+
 </html>

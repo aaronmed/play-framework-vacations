@@ -37,7 +37,7 @@ public class Reports extends Controller {
 
 			//System.out.println(file.getParent());
 			JasperExportManager.exportReportToHtmlFile(jasperPrint, file.getParent() + "/" + name + user +".html");
-			//JasperExportManager.exportReportToPdfFile(jasperPrint, file.getParent() + "/report.pdf");
+			//JasperExportManager.exportReportToPdfFile(jasperPrint, file.getParent() + "/" + name + user + ".pdf");
 
 			System.out.print("File exported!");
 			System.out.println("Report generated in path: " + file.getParent());

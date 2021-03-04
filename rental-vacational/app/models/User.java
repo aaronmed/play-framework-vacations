@@ -24,5 +24,4 @@ public class User extends Model {
 		return "User [username=" + username + ", password=" + password + ", name=" + name + ", surname=" + surname
 				+ ", dni=" + dni + ", telephone=" + telephone + "] \n";
 	}
-	
 }

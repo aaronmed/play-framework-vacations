@@ -9,7 +9,6 @@ import play.mvc.Controller;
 import play.mvc.With;
 
 
-@With(Security.class)
 public class Users extends Controller {
 	public static void form() {
 		render();
