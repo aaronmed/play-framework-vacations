@@ -59,11 +59,6 @@
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                     #{/if}
-                    <!-- <li class="nav-item">
-            <button type="button" class="btn btn-dark btn-rounded" onclick="changeMode();">
-              Modo oscuro
-            </button>
-          </li> -->
                     <!-- Navbar dropdown -->
                     #{if session.get("user.username") != null}
                     <li class="nav-item dropdown">
@@ -78,6 +73,9 @@
                         </ul>
                     </li>
                     #{/if}
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/Perfil.html" target="_blank">Ayuda</a>
+                    </li>
                 </ul>
                 <!-- Left links -->
 
@@ -114,7 +112,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4">#{if flash.error}<div class="alert alert-dark" role="alert">
+                ${flash.error}
+            </div>#{/if}</div>
         </div>
 
     </div>

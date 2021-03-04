@@ -33,6 +33,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#user-manual">User Manual</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -177,11 +178,12 @@ A simple application in which users will be able to view advertisements for holi
 <img src="images/usability11.png" alt="Usability11">
 </p>
 
-10. **The user is indicated each time a value changes**, for example, when a book is made, when an advertisement is deleted, when a new advertisement is added, etc
+10. **The user is indicated each time a value changes**, for example, you are trying to book your own advert or trying to book an advert when you're not logged
 <p align="center">
 <img src="images/usability12.png" alt="Usability12">
 <img src="images/usability13.png" alt="Usability13">
 <img src="images/usability14.png" alt="Usability14">
+<img src="images/usability15.png" alt="Usability15">
 </p>
 
 
@@ -201,6 +203,10 @@ Here we can find the Postman [documentation](https://documenter.getpostman.com/v
 ### Installation
 
 You can found [here](https://github.com/aaronmed/play-framework-vacations/wiki) the installation manual
+
+### User manual
+
+[Here](https://github.com/aaronmed/play-framework-vacations/blob/master/documentation/VacationsApp.pdf) you have the user manual to know how to navigate through the application:
 
 <!-- ROADMAP -->
 ## Roadmap
