@@ -196,6 +196,29 @@ Here we can find the Postman [documentation](https://documenter.getpostman.com/v
 ## Technology comparison
 <img src="images/comparative.png" alt="Comparative">
 
+* NATIVE APPS
+
+Native apps are those that use, during their development, the native language of the device on which they are to be installed.
+
+In the case of iOS they are developed with Swift or Objective-C language.
+For Android they are developed with Java.
+According to Obux, among the advantages of native apps is: its excellent handling of sensors and services of mobile devices, its wide range to smartphones and the use of official tools for each platform.
+
+* HYBRID APPS
+
+Hybrid apps are developed using HTML5, CSS and JavaScript web technologies, which in turn will run in the system's native browser. These applications have a lower development cost than native ones, they can run on multiple devices and their distribution is more massive.
+
+* WEBS APP
+
+Finally, we find the app webs. They are accessed directly from the browser of the phone or tablet, and on almost all devices it will open almost the same way thanks to the use of Responsive Web Design. It is the simplest and most economical option, since it reduces development costs. Compatibility, usability and simplicity are among its advantages.
+
+* PWAs
+
+PWAs are commonly defined as Apps that bring together the best of web and native applications, even coming to be understood as a midpoint or an evolved form.
+The base is web pages, but they use technologies that make their aesthetics and operation strongly resemble a native App, for example, by running in the background. They are accessed through a browser, but you can pin a shortcut on our device. 
+They are progressive and responsive, because, it adapts to any device.
+They do not need an internet connection. The visuals, the interaction and its style is the same as in native applications.Also, they are upgradeable and secure. In addition, they are easily found: you can do it through any web search engine; and they are linkable: you can share their URL, by WhatsApp, Messenger, etc.
+
 <!-- GETTING STARTED -->
 ## Getting Started
 

@@ -11,14 +11,27 @@ import play.test.*;
 
 public class UserTest extends UnitTest {
 
-	@Before
-	public void setUpUser() {
-		Fixtures.loadModels("user.yml");
+	@BeforeClass
+	public static void setUpUser() {
+		User user = new User();
+		user.username = "diego";
+		user.save();
+		System.out.print("Añadido");
 	}
+	
 		
 	@Test
-	public void findByUser() {
-		User user = User.find("byUsername", "diegarc").first();
+	public void userAdded() {
+		User user = User.find("byUsername", "diego").first();
 		assertNotEquals(user, null);
+	}
+	
+	@Test
+	public void userDeleted() {
+		User user = User.find("byUsername", "diego").first();
+		user.delete();
+		
+		User user2 = User.find("byUsername", "diego").first();
+		assertEquals(user2, null);
 	}
 }

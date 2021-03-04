@@ -1,5 +1,8 @@
 package models;
 
+import java.io.File;
+import java.io.FileInputStream;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

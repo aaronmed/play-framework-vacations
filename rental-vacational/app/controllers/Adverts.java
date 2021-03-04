@@ -96,6 +96,18 @@ public class Adverts extends Controller {
 
 		renderTemplate("Adverts/form.html", advert, iduser, date);
 	}
+	
+	public static void editImage(long id) {
+		Advert advert = Advert.findById(id);
+
+		Long iduser = Long.parseLong(session.get("user.id"));
+
+		Date today = Calendar.getInstance().getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(today);
+
+		renderTemplate("Adverts/formimage.html", advert, iduser, date);
+	}
 
 	public static void delete(long id) {
 		Advert advert = Advert.findById(id);
