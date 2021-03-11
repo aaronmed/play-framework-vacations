@@ -1,14 +1,6 @@
-04 mar 2021 16:44:20,618 INFO  ~ Starting C:\Users\Aaron\Desktop\play-framework-vacations\rental-vacational
-04 mar 2021 16:44:20,862 INFO  ~ Module pdf is available (C:\Users\Aaron\Desktop\play-framework-vacations\rental-vacational\modules\pdf-0.9)
-04 mar 2021 16:44:21,307 WARN  ~ You're running Play! in DEV mode
-04 mar 2021 16:44:21,686 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
-04 mar 2021 16:44:26,164 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
-04 mar 2021 16:44:26,878 INFO  ~ Application 'rental-vacational' is now started !
-04 mar 2021 16:47:40,786 INFO  ~ Restart: Signature change !
-04 mar 2021 16:47:40,909 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
-04 mar 2021 16:47:51,172 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to change method modifiers
-04 mar 2021 16:47:51,270 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
-04 mar 2021 16:48:08,498 INFO  ~ Restart: Signature change !
-04 mar 2021 16:48:08,601 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
-04 mar 2021 16:48:16,383 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to change method modifiers
-04 mar 2021 16:48:16,466 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
+04 mar 2021 19:25:27,843 INFO  ~ Starting C:\Users\Aaron\Desktop\play-framework-vacations\rental-vacational
+04 mar 2021 19:25:28,270 INFO  ~ Module pdf is available (C:\Users\Aaron\Desktop\play-framework-vacations\rental-vacational\modules\pdf-0.9)
+04 mar 2021 19:25:29,062 WARN  ~ You're running Play! in DEV mode
+04 mar 2021 19:25:29,728 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+04 mar 2021 19:25:53,195 INFO  ~ Connected to jdbc:mysql://localhost/db_vacations?useUnicode=yes&connectionCollation=utf8_general_ci&characterEncoding=UTF-8 for default
+04 mar 2021 19:25:54,488 INFO  ~ Application 'rental-vacational' is now started !
